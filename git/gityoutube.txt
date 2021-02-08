@@ -1,0 +1,252 @@
+VCS TRADUCE: Version Control System 
+
+Para crear el repositorio en de git hacemos lo siguiente :
+
+-git init: crea el repositorio
+
+-git status: nos muestra el estado de los archivos
+
+hay archivos que no estan siendo gestionados por git, para ello
+debemos hacer lo siguiente  y es
+
+-git add . 	enter
+
+-git status
+
+con esto le damos control de los archivos para que se puedan
+gestionar si hay algun cambio ,
+
+git status muestra que archivos estamos adicionando oh no! , estos
+archivos se encuentran en una zona llamada “stage”, es una zona
+intermediaria donde los archivos estan listos para ser confirmados.
+
+Para confirmarlo hacemos lo siguiente.
+
+- git commit -m “commit inicial “ enter
+
+esto va hacer que los archivos sean agregados y confirmados
+
+“git diff nos compara la ultima modificacion con la anterior que se
+hizo “ se puede ver  que algo sucedió  con git status , luego el
+comando  git diff.
+
+Para revertir a como estaba antes el codigo ponemos el siguiente
+comando
+
+git checkout .
+
+-git log :me va a mostrar los cambios que se han tenido en el
+repositorio
+
+modificar unico contenido de un archivo en particular ,  de la
+siguiente manera ejemplo:
+
+-git add index.html enter
+
+-git commit -m “se modifico index.html la palabra hola mundo”
+enter
+
+si queremos agregar a la parte stage un directorio en particular
+
+-git add js/
+
+para confirmar que se realizo un cambio en una carpeta en este caso
+css, hacemos lo siguiente:
+
+git add css/*.css
+
+nos va a mostrar los cambios que se realizaron
+
+tambien podemos remover todo aquello que querramos en este caso los
+archivos de css que se crearon de la siguiente manera:
+
+git reset css/* scss
+
+para agregar los archivos nuevamente, lo podemos hacer con :
+
+git add -A
+
+OJO PARA CERAR Y SEGUIR CON LA LETRA Q
+
+para mirar los comandos , por si se nos olvida podemos hacerlo con :
+
+-git help commit
+
+como reducir comandos en git por medio de alias apodos:
+
+-git config –global alias. Juan “log”
+
+- git juan: nos va a guardar todo lo que hicimos en la parte anterior
+
+QUE PASA SI NOS EQUIVOCAMOS AL COLOCAR UN MENSAJE EN NUESTRO CODIGO
+
+SE PUEDE VIAJAR POR LOS ILOS DE NUESTRO REPOSSITORIO?
+
+Como se puede cambiar un mensaje si lo escribimos mal, lo que podemos
+hacer es:
+
+git commit  - - amend -m “ Nueva modificacion al index”
+
+-para agregar un archivo a nuestro repositorio haremos lo siguiente:
+
+git add
+
+git commit -m “Se agrego principal.html”
+
+tambien podemos cambiar nombres de archivos desde la consola, de la
+siguiente manera:
+
+-git mv Principal.html Princ.html
+
+- para eliminar un archivo lo hacemos de la siguiente manera.
+
+Git rm “Princ.html “ este es el nombre del archivo que vamos a
+eliminar
+
+-git reset  - -  soft  y se pega el id done aparece que se borro el
+archivo , esto elimina el historial de que se borro el archivo,
+despues para recuperar el archivo podemos hacer lo siguiente.
+
+Git reset - - hard y el id
+
+para mirar el historio lo podemos hacer con:
+
+git reflog  enter
+
+`git reset - - mixed` esto lo que va hacer es ir a un punto de la
+historia, de los itos editando los commits desde ese punto hacia
+adelante  pero los cambios se van a mantener
+
+`git reset  - - soft`  me va a llevar a ese ito
+
+podemos tambin hacer que se reconstruya todo hasta sierto punto 
+miramos de la siguiente manera
+
+git reflog , miramos el que queremos que se re construya despues
+
+git reset –hard y “830a4e1” este es el numero del cual queremos
+que se reconstruya
+
+GIT IGNORE
+
+Para excluir un archivo , lo que debemos hacer es , crear un nuevo
+archivo con la palabra .gitignore
+
+y todo lo que este dentro de este archivo sera ignorado
+
+GIT Y GITHUB CON RAMAS
+
+Es una division de nuestro trabajo actual y las uniones conocidas
+como mersh conocido como Fast-forward hace la union con la rama
+inicial con la rama secundaria
+
+y para crear una segunda rama utilizamos el comando :
+
+-`git branch` nombre de nuestra rama
+
+despues podemos mirar que quedo creada con git log
+
+-git merge "ponemos el nombre de la rama " unifica las ramas  
+
+-git log - - oneline  - -all  - - graph  esto nos muestra mas
+resumido y mas visual en donde nos encontramos
+
+como podemos cambiar de rama , sencillamente lo que tenemos que hacer
+es  git checkout  y el nombre de la rama
+
+vamos a la rama master , que seria de la siguiente manera git
+checkout master , y vamos hacer la union
+
+git merge nuevaFuncionalidad que es el nombre de la segunda rama ,
+con la cual vamos hacer la union
+
+en este caso como ya tenemos unidas las dos ramas la anterior la
+podemos eliminar de la siguiente manera
+
+-git branch  -d  nuevaFuncionalidad , de esta forma eliminamos la
+anterior rama
+
+para crear una nueva rama y que se dirija a esa otra rama lo que
+debemos hacer es :
+
+git checkout -b  el nombre de la rama
+
+QUE HACER CUANDO HAY UN CONFLICTO TANTO EN LA RAMA PRINCIPAL COMO EN LA SECUNDARIA.
+
+merge con conflictos
+
+crear etiquetas  :
+
+git tag nombre de la etiqueta
+
+y al poner git tag nuevamente nos va a mostrar el nombre de la etiqueta, tambien nuestra rama va a tener el nombre de nuestra etiqueta
+
+para eliminar esta etiqueta lo hacemos como git tag -d y el nombre de la etiqueta
+
+se puede denotar la etiqueta que hemos eliminado con :
+
+git tag -a v1.0.0 -m"version inicial "= v1cambio mayor.0esto indica cambio moderado.0cambio minimo
+
+se puede llamar la version del git de la siguiente manera
+
+git show  v1.0.0
+
+podemos establecer que comit en el tiempo, hasta ahi es un etiquetado
+
+de las siguiente manera , escogemos el comit que queremos seleccionar de la siguiente manera:
+
+git tag v0.0.1  seguido del id -m "version beta" identificador que queremos
+
+asi podemos llevar un mejor control de las versiones en los proyectos  
+
+GIT Y GITHUB CLONE
+
+Empezar a subir nuestros repositorios y proyectos por medio de github ,
+
+como puedo hacer si tengo una carpeta en mi equipo y quiero llevar elcontrol de esa carpeta en github,entonces lo que hacemos es abrimos la terminal y hacemos lo siguiente , creamos un nuevo repositorio 
+
+git init, git add . git commit -m "  vamos a  usar el siguiente comando git remote add origin y el linde la pagina , en este caso seria asi  : git remote add origin [https://github.com/Juan931/repositorio-git.git](https://github.com/Juan931/repositorio-git.git)
+
+luego ejecutamos el ultimo comando que seria : git push -u origin master 
+
+Username for '[https://github.com](https://github.com/)': Juan931
+
+tambien podemos asociar mas repositorios que tengamos, creamos un nuevo repositorio en git 
+
+git remote add origin [https://github.com/Juan931/repositorio-git-2-.git](https://github.com/Juan931/repositorio-git-2-.git)
+
+git push -u origin master
+
+CLONAR REPOSITORIO , lo hacemos desde github en el boton CODE Y COPIAMOS EL LINK DEL REPOSITORIO , podemos pasar ese repositorioa otra carpeta bacia que esta creada de la siguiente manera:
+
+ Vamos al terminal
+
+ cambiamos de directorio
+
+ vamos a la carpeta que se creo 
+
+ponemos : git  clone  y el link del repositorio, y ya tendremos nuestro repositorio 
+
+cuando  modificamos un archivo debemos hacer los cambios de la siguiente manera 
+
+git push origin master, nos pedira usuario y contraseña  
+
+GIT Y GITHUB  GIT PULL
+
+SI queremos hacer cambios en github elimiando algun archivo oh creando un nuevo archivo , y verlo reflejado en nuestra terminal local , cuando hacemos la modificacion agregando un archivo lo hacemos creando un nuevo archivo, luego de colocar lo que queremos , agregamos un commit 
+
+al final de la pagian tenemos dos opciones 
+
+1 hacer un commit a la rama principal , ¿ como traemos esa informacion ? Existen dos comandos por el momento usaremos  git pull : que sirve para traer lo que hicimos y unirlo a nuestro repositorio 
+
+GIT Y GITHUB Fork 
+
+podemos hacer copia y modificaciones a repositorios de github , para eso hay una funcionalidad llamada FORK en github en la parte superior derecha con ese nombre , ya tenemos el repositorio clanado en github, ahora creamos una nueva carpeta con el nombre que queremos para ese repositorio , despues clonamos ese repositorio 
+
+git clone  link del repositorio 
+
+despues git push origin master
+
+GIT Y GITHUB PULL REQUEST
+
+Primero hay que tener un repositorio original en github le damos en la funcionalidad new pull request donde se participa con otros usuarios , se mira el archivo y comenta al respecto
